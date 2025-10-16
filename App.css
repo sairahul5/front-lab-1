@@ -1,0 +1,116 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 28px;
+  background: linear-gradient(to top right, #e9f2fb, #ffffff);
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+/* helper to center arbitrary elements */
+.center-all { display:flex; align-items:center; justify-content:center; }
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  width: 250px;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #0078ff;
+}
+
+.search-box button {
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #005fcc;
+}
+
+/* new interactive styles */
+.input-wrap {
+  position: relative;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-top-color: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.primary {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,0.12); }
+
+.suggestions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  z-index: 30;
+}
+.suggestions li { padding: 8px 12px; cursor: pointer; }
+.suggestions li.active { background: #f1f5f9; }
+
+/* result card styles (used by Results.jsx) */
+.weather-card { max-width: 420px; width: 100%; background: white; padding: 16px; border-radius: 12px; box-shadow: 0 12px 30px rgba(16,24,40,0.06); }
+.weather-card.animated { transition: transform 260ms ease, opacity 220ms ease; transform-origin: top center; }
+.weather-card .card-main { display:flex; gap:12px; align-items:center; }
+.icon-wrap img { width:72px; height:72px; }
+.muted { color: #64748b; margin:0; }
+.card-actions { display:flex; gap:8px; margin-top:12px; }
+.details { margin-top:12px; color:#374151; }
+
+.btn { background: #eef2ff; border: 1px solid rgba(99,102,241,0.08); padding:8px 10px; border-radius:8px; cursor:pointer; }
+.btn:hover { transform: translateY(-2px); }
+
